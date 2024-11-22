@@ -258,7 +258,7 @@ public class ZLMMediaServerStatusManager {
             param.put("ffmpeg.snap", "%s -rtsp_transport tcp -i %s -y -f mjpeg -frames:v 1 %s");
         }
         param.put("hook.enable","1");
-        param.put("hook.on_flow_report","");
+        param.put("hook.on_flow_report",String.format("%s/on_flow_report", hookPrefix));
         param.put("hook.on_play",String.format("%s/on_play", hookPrefix));
         param.put("hook.on_http_access","");
         param.put("hook.on_publish", String.format("%s/on_publish", hookPrefix));

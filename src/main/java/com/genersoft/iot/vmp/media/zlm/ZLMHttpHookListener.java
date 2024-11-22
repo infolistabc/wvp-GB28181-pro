@@ -305,4 +305,21 @@ public class ZLMHttpHookListener {
 
         return HookResult.SUCCESS();
     }
+
+    /**
+     * 流量统计上报
+     */
+    @ResponseBody
+    @PostMapping(value = "/on_flow_report", produces = "application/json;charset=UTF-8")
+    public HookResult onFlowReport(HttpServletRequest request, @RequestBody OnFlowReportParam param) {
+        log.info("[ZLM HOOK] 流量统计事件：{}",JSONObject.toJSONString(param));
+
+        try {
+
+        }catch (Exception e) {
+            log.info("[ZLM-HOOK-rtpServer流量统计事件超时] 发送通知失败 ", e);
+        }
+
+        return HookResult.SUCCESS();
+    }
 }
